@@ -107,9 +107,17 @@ export default class SketchPad extends Component {
         ];
     }
 
+    clearSketchpad = () => {
+        const canvas = this.canvasRef;
+        const context = canvas.getContext("2d")
+        context.fillStyle = "white"
+        context.fillRect(0, 0, canvas.width, canvas.height)
+    }
+
     render() {
         const {width, height, canvasClassName} = this.props;
         return (
+            <div>
             <canvas
                 ref={(canvas) => { this.canvasRef = canvas; }}
                 className={canvasClassName}
@@ -119,7 +127,10 @@ export default class SketchPad extends Component {
                 onMouseUp={this.onMouseUp}
                 width={width}
                 height={height}
+                style={{ border: '5px navy solid', marginTop: 10}}
             />
+            <button onClick={this.clearSketchpad}>clear</button>
+            </div>
         )
     }
 }
