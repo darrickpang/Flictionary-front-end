@@ -49,6 +49,7 @@ export default class SketchPad extends Component {
         this.onMouseMove = this.onMouseMove.bind(this);
         this.onDebouncedMove = this.onDebouncedMove.bind(this);
         this.onMouseUp = this.onMouseUp.bind(this);
+        this.canvasRef = React.createRef();
     }
 
     componentDidMount() {
@@ -107,29 +108,29 @@ export default class SketchPad extends Component {
         ];
     }
 
-    clearSketchpad = () => {
-        const canvas = this.canvasRef;
-        const context = canvas.getContext("2d")
+    clearCanvas = () => {
+        const canvas = this.canvasRef.current;
+        const context = this.canvas.getContext("2d")
         context.fillStyle = "white"
-        context.fillRect(0, 0, canvas.width, canvas.height)
+        context.fillRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
     render() {
         const {width, height, canvasClassName} = this.props;
         return (
             <div>
-            <canvas
-                ref={(canvas) => { this.canvasRef = canvas; }}
-                className={canvasClassName}
-                onMouseDown={this.onMouseDown}
-                onMouseMove={this.onMouseMove}
-                onMouseOut={this.onMouseUp}
-                onMouseUp={this.onMouseUp}
-                width={width}
-                height={height}
-                style={{ border: '5px navy solid', marginTop: 10}}
-            />
-            <button onClick={this.clearSketchpad}>clear</button>
+                <button onClick={this.clearCanvas}>Clear</button>
+                <canvas
+                    style={{ border: '5px navy solid', marginTop: 10}}
+                    ref={(canvas) => { this.canvasRef = canvas; }}
+                    className={canvasClassName}
+                    onMouseDown={this.onMouseDown}
+                    onMouseMove={this.onMouseMove}
+                    onMouseOut={this.onMouseUp}
+                    onMouseUp={this.onMouseUp}
+                    width={width}
+                    height={height}
+                />
             </div>
         )
     }
