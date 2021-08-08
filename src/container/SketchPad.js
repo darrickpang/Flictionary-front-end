@@ -131,6 +131,7 @@ export default class SketchPad extends Component {
                     width={width}
                     height={height}
                 />
+                <input />
             </div>
         )
     }
