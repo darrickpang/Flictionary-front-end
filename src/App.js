@@ -8,6 +8,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
+        Quick Draw
         <SketchPad />
       </div>
     );

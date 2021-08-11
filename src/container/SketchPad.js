@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { findDOMNode } from 'react-dom'
+import {CardBody, Button, Form, Input, FormGroup, Row, Col} from 'reactstrap'
 import { Pencil, TOOL_PENCIL } from '../components'
 
 export const toolsMap = {
@@ -119,19 +120,21 @@ export default class SketchPad extends Component {
         const {width, height, canvasClassName} = this.props;
         return (
             <div>
-                <button onClick={this.clearCanvas}>Clear</button>
-                <canvas
-                    style={{ border: '5px navy solid', marginTop: 10}}
-                    ref={(canvas) => { this.canvasRef = canvas; }}
-                    className={canvasClassName}
-                    onMouseDown={this.onMouseDown}
-                    onMouseMove={this.onMouseMove}
-                    onMouseOut={this.onMouseUp}
-                    onMouseUp={this.onMouseUp}
-                    width={width}
-                    height={height}
-                />
-                <input />
+                <div>
+                    <canvas
+                        style={{ border: '5px navy solid', marginTop: 10}}
+                        ref={(canvas) => { this.canvasRef = canvas; }}
+                        className={canvasClassName}
+                        onMouseDown={this.onMouseDown}
+                        onMouseMove={this.onMouseMove}
+                        onMouseOut={this.onMouseUp}
+                        onMouseUp={this.onMouseUp}
+                        width={width}
+                        height={height}
+                    />
+                </div>
+                <Button className="button" onClick={this.clearCanvas}>Clear</Button>
+                <Button className="button">Done</Button>
             </div>
         )
     }
