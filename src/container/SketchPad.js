@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import { findDOMNode } from 'react-dom'
 import {CardBody, Button, Form, Input, FormGroup, Row, Col} from 'reactstrap'
 import { Pencil, TOOL_PENCIL } from '../components'
@@ -11,24 +11,6 @@ export default class SketchPad extends Component {
 
     tool = null;
     interval = null;
-
-    static propTypes = {
-        // width: PropTypes.number,
-        // height: PropTypes.number,
-        // items: PropTypes.array.isRequired,
-        // animate: PropTypes.bool,
-        // canvasClassName: PropTypes.string,
-        // color: PropTypes.string,
-        // fillColor: PropTypes.string,
-        // size: PropTypes.number,
-        // tool: PropTypes.string,
-        // toolsMap: PropTypes.object,
-        // onItemStart: PropTypes.func, // function(stroke:Stroke) { ... }
-        // onEveryItemChange: PropTypes.func, // function(idStroke:string, x:number, y:number) { ... }
-        // onDebouncedItemChange: PropTypes.func, // function(idStroke, points:Point[]) { ... }
-        // onCompleteItem: PropTypes.func, // function(stroke:Stroke) { ... }
-        // debounceTime: PropTypes.number,
-    };
 
     static defaultProps = {
         width: 500,
