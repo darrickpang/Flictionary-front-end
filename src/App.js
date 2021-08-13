@@ -6,7 +6,6 @@ import SketchPad from './container/SketchPad';
 
 class App extends React.Component {
 
-  //test test
   componentDidMount(){
     fetch('/api')
     .then(response => response.json())
