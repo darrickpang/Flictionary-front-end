@@ -5,6 +5,13 @@ import './App.css';
 import SketchPad from './container/SketchPad';
 
 class App extends React.Component {
+
+  componentDidMount(){
+    fetch('/api')
+    .then(response => response.json())
+    .then(data => console.log(data))
+  }
+
   render(){
     return (
       <div className="App">
